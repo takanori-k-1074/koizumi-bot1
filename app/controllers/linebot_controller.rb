@@ -1,14 +1,11 @@
 class LinebotController < ApplicationController
   require 'line/bot'
+  require 'open-uri'
+  require 'kconv'
+  require 'rexml/document
 
   protect_from_forgery :except => [:callback]
 
-  def client
-    @client ||= Line::Bot::Client.new { |config|
-      config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
-      config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
-    }
-  end
 
   def callback
     body = request.body.read
@@ -29,7 +26,36 @@ class LinebotController < ApplicationController
           if event.message['text'].eql?('アンケート')
             # private内のtemplateメソッドを呼び出します。
             client.reply_message(event['replyToken'], template)
-          end
+          elsif event.message['text'].eql?('天気')
+            when Line::Bot::Event::MessageType::Location
+              # LINEの位置情報から緯度経度を取得
+              latitude = event.message['latitude']
+              longitude = event.message['longitude']
+              appId = "a995c1bbc2e007e55331118b27ca023c"
+              url= "http://api.openweathermap.org/data/2.5/forecast?lon=#{longitude}&lat=#{latitude}&APPID=#{appId}&units=metric&mode=xml"
+               # XMLをパースしていく
+              xml  = open( url ).read.toutf8
+              doc = REXML::Document.new(xml)
+              xpath = 'weatherdata/forecast/time[1]/'
+              nowWearther = doc.elements[xpath + 'symbol'].attributes['name']
+              nowTemp = doc.elements[xpath + 'temperature'].attributes['value']
+              case nowWearther
+              # 条件が一致した場合、メッセージを返す処理。絵文字も入れています。
+              when /.*(clear sky|few clouds).*/
+                push = "晴れ\u{2600}\n\n気温#{nowTemp}℃だ\u{1F321}"
+              when /.*(scattered clouds|broken clouds|overcast clouds).*/
+                push = "曇り\u{2601}\n\n気温#{nowTemp}℃だ\u{1F321}"
+              when /.*(rain|thunderstorm|drizzle).*/
+                push = "雨\u{2614}\n\n気温#{nowTemp}℃だ\u{1F321}"
+              when /.*(snow).*/
+                push = "雪\u{2744}\n\n気温#{nowTemp}℃だ\u{1F321}"
+              when /.*(fog|mist|Haze).*/
+                push = "霧が発生\u{1F32B}\n\n気温#{nowTemp}℃だ\u{1F321}"
+              else
+                push = "何かが発生していますが、\n自身で確認してちょ\u{1F605}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
+              end
+            end
+          end 
         end
       end
     }
@@ -38,6 +64,13 @@ class LinebotController < ApplicationController
   end
 
   private
+
+  def client
+    @client ||= Line::Bot::Client.new { |config|
+      config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
+      config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
+    }
+  end
 
   def template
     {
