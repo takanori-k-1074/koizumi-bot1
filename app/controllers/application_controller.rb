@@ -1,4 +1,7 @@
 require 'line/bot'
+require 'open-uri'
+require 'kconv'
+require 'rexml/document'
 
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
@@ -17,9 +20,8 @@ class ApplicationController < ActionController::Base
     @client ||= Line::Bot::Client.new { |config|
       config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
       config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
-      # ローカルで動かすだけならベタ打ちでもOK
-      # config.channel_secret = "your channel secret"
-      # config.channel_token = "your channel token"
+      # config.channel_secret = "linedevelopers 環境設定済"
+      # config.channel_token = "linedevelopers 環境設定済"
     }
   end
 end
