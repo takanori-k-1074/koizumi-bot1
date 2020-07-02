@@ -7,35 +7,7 @@ class LinebotController < ApplicationController
     events.each { |event|
 
       if event.message['text'].include?("天気")
-        case event.type
-        when Line::Bot::Event::MessageType::Location
-          # LINEの位置情報から緯度経度を取得
-          latitude = event.message['latitude']
-          longitude = event.message['longitude']
-          appId = "6f0d8d8f2b532a46d4ff945d4091f211"
-          url= "http://api.openweathermap.org/data/2.5/forecast?lon=#{longitude}&lat=#{latitude}&APPID=#{appId}&units=metric&mode=xml"
-          # XMLをパース
-          xml  = open( url ).read.toutf8
-          doc = REXML::Document.new(xml)
-          xpath = 'weatherdata/forecast/time[1]/'
-          nowWearther = doc.elements[xpath + 'symbol'].attributes['name']
-          nowTemp = doc.elements[xpath + 'temperature'].attributes['value']
-          case nowWearther
-          # 条件が一致した場合、メッセージを返す処理。
-          when /.*(clear sky|few clouds).*/
-            response = "現在地の天気は晴れです\u{2600}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
-          when /.*(scattered clouds|broken clouds|overcast clouds).*/
-            response = "現在地の天気は曇りです\u{2601}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
-          when /.*(rain|thunderstorm|drizzle).*/
-            response = "現在地の天気は雨です\u{2614}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
-          when /.*(snow).*/
-            response = "現在地の天気は雪です\u{2744}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
-          when /.*(fog|mist|Haze).*/
-            response = "現在地では霧が発生しています\u{1F32B}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
-          else
-            response = "現在地では何かが発生していますが、\nご自身でお確かめください。\u{1F605}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
-          end
-        end
+        response = "位置情報を送ってくれ"
       elsif event.message['text'].include?("名前")
         response = "コイズミBOT試作１号機"
       else
@@ -55,6 +27,33 @@ class LinebotController < ApplicationController
           response = client.get_message_content(event.message['id'])
           tf = Tempfile.open("content")
           tf.write(response.body)
+        when Line::Bot::Event::MessageType::Location
+          # LINEの位置情報から緯度経度を取得
+          latitude = event.message['latitude']
+          longitude = event.message['longitude']
+          appId = "6f0d8d8f2b532a46d4ff945d4091f211"
+          url= "http://api.openweathermap.org/data/2.5/forecast?lon=#{longitude}&lat=#{latitude}&APPID=#{appId}&units=metric&mode=xml"
+          # XMLをパース
+          xml  = open( url ).read.toutf8
+          doc = REXML::Document.new(xml)
+          xpath = 'weatherdata/forecast/time[1]/'
+          nowWearther = doc.elements[xpath + 'symbol'].attributes['name']
+          nowTemp = doc.elements[xpath + 'temperature'].attributes['value']
+          case nowWearther
+          # 条件が一致した場合、メッセージを返す処理。
+          when /.*(clear sky|few clouds).*/
+            push = "現在地の天気は晴れです\u{2600}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
+          when /.*(scattered clouds|broken clouds|overcast clouds).*/
+            push = "現在地の天気は曇りです\u{2601}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
+          when /.*(rain|thunderstorm|drizzle).*/
+            push = "現在地の天気は雨です\u{2614}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
+          when /.*(snow).*/
+            push = "現在地の天気は雪です\u{2744}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
+          when /.*(fog|mist|Haze).*/
+            push = "現在地では霧が発生しています\u{1F32B}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
+          else
+            push = "現在地では何かが発生していますが、\nご自身でお確かめください。\u{1F605}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
+          end
         end
       end
     }
