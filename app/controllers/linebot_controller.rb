@@ -17,16 +17,6 @@ class LinebotController < ApplicationController
       case event
       when Line::Bot::Event::Message
         case event.type
-        when Line::Bot::Event::MessageType::Text
-          message = {
-            type: 'text',
-            text: response
-          }
-          client.reply_message(event['replyToken'], message)
-        when Line::Bot::Event::MessageType::Image, Line::Bot::Event::MessageType::Video
-          response = client.get_message_content(event.message['id'])
-          tf = Tempfile.open("content")
-          tf.write(response.body)
         when Line::Bot::Event::MessageType::Location
           # LINEの位置情報から緯度経度を取得
           latitude = event.message['latitude']
@@ -54,6 +44,16 @@ class LinebotController < ApplicationController
           else
             push = "現在地では何かが発生していますが、\nご自身でお確かめください。\u{1F605}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
           end
+        when Line::Bot::Event::MessageType::Text
+          message = {
+            type: 'text',
+            text: response
+          }
+          client.reply_message(event['replyToken'], message)
+        when Line::Bot::Event::MessageType::Image, Line::Bot::Event::MessageType::Video
+          response = client.get_message_content(event.message['id'])
+          tf = Tempfile.open("content")
+          tf.write(response.body)      
         end
       end
     }
