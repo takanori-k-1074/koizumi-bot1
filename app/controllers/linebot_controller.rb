@@ -6,14 +6,6 @@ class LinebotController < ApplicationController
 
     events.each { |event|
 
-      if event.message['text'].include?("天気")
-        response = "位置情報を送ってくれ"
-      elsif event.message['text'].include?("名前")
-        response = "コイズミBOT試作１号機"
-      else
-        response = event.message['text']
-      end
-
       case event
       when Line::Bot::Event::Message
         case event.type
@@ -45,6 +37,13 @@ class LinebotController < ApplicationController
             push = "現在地では何かが発生していますが、\nご自身でお確かめください。\u{1F605}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
           end
         when Line::Bot::Event::MessageType::Text
+          if event.message['text'].include?("天気")
+            response = "位置情報を送ってくれ"
+          elsif event.message['text'].include?("名前")
+            response = "コイズミBOT試作１号機"
+          else
+            response = event.message['text']
+          end
           message = {
             type: 'text',
             text: response
