@@ -63,7 +63,7 @@ class LinebotController < ApplicationController
     }
     "OK"
   end
-  
+
   private
 
   def yourName
@@ -85,7 +85,7 @@ class LinebotController < ApplicationController
       },
       "hero": {
         "type": "image",
-        "url": "/Users/t.k/app/koizumi-bot1/public/sample.png",
+        "url": "koizumi-bot1/public/sample.png",
         "size": "full",
         "aspectMode": "cover"
       },
