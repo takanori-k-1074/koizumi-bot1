@@ -45,7 +45,7 @@ class LinebotController < ApplicationController
           if event.message['text'].include?("天気")
             response = "位置情報を送ってくれ"
           elsif event.message['text'].include?("名前")
-            response = "コイズミBOT試作１号機"
+            client.reply_message(event['replyToken'], yourName)
           else
             response = event.message['text']
           end
@@ -62,5 +62,48 @@ class LinebotController < ApplicationController
       end
     }
     "OK"
+  end
+  
+  private
+
+  def yourName
+    {
+      "type": "bubble",
+      "header": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "名前は...",
+            "decoration": "underline"
+          }
+        ],
+        "margin": "none",
+        "spacing": "none",
+        "backgroundColor": "#ddffdd"
+      },
+      "hero": {
+        "type": "image",
+        "url": "/Users/t.k/app/koizumi-bot1/public/sample.png",
+        "size": "full",
+        "aspectMode": "cover"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "コイズミBOT試作１号機",
+            "align": "center",
+            "weight": "bold",
+            "size": "xl",
+            "color": "#aa0000"
+          }
+        ],
+        "backgroundColor": "#ddffdd"
+      }
+    }
   end
 end
