@@ -88,7 +88,7 @@ class LinebotController < ApplicationController
                 backgroundColor: "#ddffdd"
               }
             }
-            client.reply_message(event['replyToken'], name)
+            client.reply_message(event['replyToken'], message = name)
           else
             response = event.message['text']
             message = {
