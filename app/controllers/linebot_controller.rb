@@ -69,41 +69,45 @@ class LinebotController < ApplicationController
 
   def yourName
     {
-      "type": "bubble",
-      "header": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "名前は...",
-            "decoration": "underline"
-          }
-        ],
-        "margin": "none",
-        "spacing": "none",
-        "backgroundColor": "#ddffdd"
-      },
-      "hero": {
-        "type": "image",
-        "url": "/sample.png",
-        "size": "full",
-        "aspectMode": "cover"
-      },
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "コイズミBOT試作１号機",
-            "align": "center",
-            "weight": "bold",
-            "size": "xl",
-            "color": "#aa0000"
-          }
-        ],
-        "backgroundColor": "#ddffdd"
+      "type": "template",
+      "altText": "this is a confirm template",
+      "template": {
+        "type": "bubble",
+        "header": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "名前は...",
+              "decoration": "underline"
+            }
+          ],
+          "margin": "none",
+          "spacing": "none",
+          "backgroundColor": "#ddffdd"
+        },
+        "hero": {
+          "type": "image",
+          "url": "/sample.png",
+          "size": "full",
+          "aspectMode": "cover"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "コイズミBOT試作１号機",
+              "align": "center",
+              "weight": "bold",
+              "size": "xl",
+              "color": "#aa0000"
+            }
+          ],
+          "backgroundColor": "#ddffdd"
+        }
       }
     }
   end
