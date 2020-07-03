@@ -45,8 +45,45 @@ class LinebotController < ApplicationController
           if event.message['text'].include?("天気")
             response = "位置情報を送ってくれ"
           elsif event.message['text'].include?("名前")
-            client.reply_message(event['replyToken'], yourName)
-            break
+            name = {
+              "type": "bubble",
+              "header": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "hello, world",
+                    "decoration": "underline"
+                  }
+                ],
+                "margin": "none",
+                "spacing": "none",
+                "backgroundColor": "#ddffdd"
+              },
+              "hero": {
+                "type": "image",
+                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+                "size": "full",
+                "aspectMode": "cover"
+              },
+              "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "コイズミBOT試作１号機",
+                    "align": "center",
+                    "weight": "bold",
+                    "size": "xl",
+                    "color": "#aa0000"
+                  }
+                ],
+                "backgroundColor": "#ddffdd"
+              }
+            }
+            client.reply_message(event['replyToken'], name)
           else
             response = event.message['text']
           end
@@ -63,52 +100,5 @@ class LinebotController < ApplicationController
       end
     }
     "OK"
-  end
-
-  private
-
-  def yourName
-    {
-      "type": "template",
-      "altText": "this is a confirm template",
-      "template": {
-        "type": "bubble",
-        "header": {
-          "type": "box",
-          "layout": "vertical",
-          "contents": [
-            {
-              "type": "text",
-              "text": "名前は...",
-              "decoration": "underline"
-            }
-          ],
-          "margin": "none",
-          "spacing": "none",
-          "backgroundColor": "#ddffdd"
-        },
-        "hero": {
-          "type": "image",
-          "url": "/sample.png",
-          "size": "full",
-          "aspectMode": "cover"
-        },
-        "body": {
-          "type": "box",
-          "layout": "vertical",
-          "contents": [
-            {
-              "type": "text",
-              "text": "コイズミBOT試作１号機",
-              "align": "center",
-              "weight": "bold",
-              "size": "xl",
-              "color": "#aa0000"
-            }
-          ],
-          "backgroundColor": "#ddffdd"
-        }
-      }
-    }
   end
 end
