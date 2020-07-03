@@ -44,6 +44,11 @@ class LinebotController < ApplicationController
         when Line::Bot::Event::MessageType::Text
           if event.message['text'].include?("天気")
             response = "位置情報を送ってくれ"
+            message = {
+              type: 'text',
+              text: response
+            }
+            client.reply_message(event['replyToken'], message)
           elsif event.message['text'].include?("名前")
             name = {
               "type": "bubble",
@@ -86,12 +91,12 @@ class LinebotController < ApplicationController
             client.reply_message(event['replyToken'], name)
           else
             response = event.message['text']
+            message = {
+              type: 'text',
+              text: response
+            }
+            client.reply_message(event['replyToken'], message)
           end
-          message = {
-            type: 'text',
-            text: response
-          }
-          client.reply_message(event['replyToken'], message)
         when Line::Bot::Event::MessageType::Image, Line::Bot::Event::MessageType::Video
           response = client.get_message_content(event.message['id'])
           tf = Tempfile.open("content")
