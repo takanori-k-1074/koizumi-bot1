@@ -50,7 +50,7 @@ class LinebotController < ApplicationController
             }
             client.reply_message(event['replyToken'], message)
           elsif event.message['text'].include?("名前")
-            name = {
+            message = {
               type: "bubble",
               header: {
                 type: "box",
@@ -88,7 +88,7 @@ class LinebotController < ApplicationController
                 backgroundColor: "#ddffdd"
               }
             }
-            client.reply_message(event['replyToken'], message = name)
+            client.reply_message(event['replyToken'], message)
           else
             response = event.message['text']
             message = {
