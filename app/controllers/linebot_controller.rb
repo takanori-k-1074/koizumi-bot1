@@ -66,12 +66,6 @@ class LinebotController < ApplicationController
                 spacing: "none",
                 backgroundColor: "#ddffdd"
               },
-              hero: {
-                type: "image",
-                url: "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-                size: "full",
-                aspectMode: "cover"
-              },
               body: {
                 type: "box",
                 layout: "vertical",
