@@ -46,6 +46,7 @@ class LinebotController < ApplicationController
             response = "位置情報を送ってくれ"
           elsif event.message['text'].include?("名前")
             client.reply_message(event['replyToken'], yourName)
+            break
           else
             response = event.message['text']
           end
@@ -85,7 +86,7 @@ class LinebotController < ApplicationController
       },
       "hero": {
         "type": "image",
-        "url": "koizumi-bot1/public/sample.png",
+        "url": "/sample.png",
         "size": "full",
         "aspectMode": "cover"
       },
