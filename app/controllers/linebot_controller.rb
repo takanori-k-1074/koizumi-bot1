@@ -71,7 +71,7 @@ class LinebotController < ApplicationController
                   },
                   "hero": {
                     "type": "image",
-                    "url": "https://gyazo.com/93e1a6e01ffdba1080667db648726e4b",
+                    "url": "https://d.kuku.lu/c8ac3e72bf",
                     "size": "full",
                     "aspectMode": "cover"
                   },
