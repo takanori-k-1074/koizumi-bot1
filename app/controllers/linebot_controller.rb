@@ -61,7 +61,7 @@ class LinebotController < ApplicationController
                     "contents": [
                       {
                         "type": "text",
-                        "text": "名前は",
+                        "text": "コイズミBOT",
                         "decoration": "underline"
                       }
                     ],
@@ -81,7 +81,7 @@ class LinebotController < ApplicationController
                     "contents": [
                       {
                         "type": "text",
-                        "text": "コイズミBOT試作１号機！",
+                        "text": "試作１号機",
                         "align": "center",
                         "weight": "bold",
                         "size": "xl",
