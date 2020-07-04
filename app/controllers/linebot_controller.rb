@@ -71,7 +71,7 @@ class LinebotController < ApplicationController
                   },
                   "hero": {
                     "type": "image",
-                    "url": "https://d.kuku.lu/c8ac3e72bf/sample.png",
+                    "url": "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/11/test.jpg",
                     "size": "full",
                     "aspectMode": "cover"
                   },
