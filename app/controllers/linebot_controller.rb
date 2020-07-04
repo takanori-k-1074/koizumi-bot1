@@ -61,7 +61,7 @@ class LinebotController < ApplicationController
                     "contents": [
                       {
                         "type": "text",
-                        "text": "hello, world",
+                        "text": "名前は",
                         "decoration": "underline"
                       }
                     ],
@@ -71,7 +71,7 @@ class LinebotController < ApplicationController
                   },
                   "hero": {
                     "type": "image",
-                    "url": "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/sample.png",
+                    "url": "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/14/sample.png",
                     "size": "full",
                     "aspectMode": "cover"
                   },
@@ -81,11 +81,11 @@ class LinebotController < ApplicationController
                     "contents": [
                       {
                         "type": "text",
-                        "text": "コイズミBOT試作１号機",
+                        "text": "コイズミBOT試作１号機！",
                         "align": "center",
                         "weight": "bold",
                         "size": "xl",
-                        "color": "#aa0000"
+                        "color": "#1111aa"
                       }
                     ],
                     "backgroundColor": "#ddffdd"
