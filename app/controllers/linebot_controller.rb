@@ -71,7 +71,7 @@ class LinebotController < ApplicationController
                   },
                   "hero": {
                     "type": "image",
-                    "url": "/sample.png",
+                    "url": "koizumi-bot1/public/sample.png",
                     "size": "full",
                     "aspectMode": "cover"
                   },
