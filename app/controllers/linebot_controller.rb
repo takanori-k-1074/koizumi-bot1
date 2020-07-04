@@ -51,35 +51,47 @@ class LinebotController < ApplicationController
             client.reply_message(event['replyToken'], message)
           elsif event.message['text'].include?("名前")
             message = {
-              type: "bubble",
-              header: {
-                type: "box",
-                layout: "vertical",
-                contents: [
-                  {
-                    type: "text",
-                    text: "hello, world",
-                    decoration: "underline"
+              {
+                "type": "flex",
+                "altText": "bubble",
+                "contents": {
+                  type: "bubble",
+                  header: {
+                    type: "box",
+                    layout: "vertical",
+                    contents: [
+                      {
+                        type: "text",
+                        text: "hello, world",
+                        decoration: "underline"
+                      }
+                    ],
+                    margin: "none",
+                    spacing: "none",
+                    backgroundColor: "#ddffdd"
+                  },
+                  hero: {
+                    type: "image",
+                    url: "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+                    size: "full",
+                    aspectMode: "cover"
+                  },
+                  body: {
+                    type: "box",
+                    layout: "vertical",
+                    contents: [
+                      {
+                        type: "text",
+                        text: "コイズミBOT試作１号機",
+                        align: "center",
+                        weight: "bold",
+                        size: "xl",
+                        color: "#aa0000"
+                      }
+                    ],
+                    backgroundColor: "#ddffdd"
                   }
-                ],
-                margin: "none",
-                spacing: "none",
-                backgroundColor: "#ddffdd"
-              },
-              body: {
-                type: "box",
-                layout: "vertical",
-                contents: [
-                  {
-                    type: "text",
-                    text: "コイズミBOT試作１号機",
-                    align: "center",
-                    weight: "bold",
-                    size: "xl",
-                    color: "#aa0000"
-                  }
-                ],
-                backgroundColor: "#ddffdd"
+                }
               }
             }
             client.reply_message(event['replyToken'], message)
