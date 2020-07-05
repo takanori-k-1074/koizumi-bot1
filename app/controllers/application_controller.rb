@@ -2,6 +2,7 @@ require 'line/bot'
 require 'open-uri'
 require 'kconv'
 require 'rexml/document'
+require 'mechanize'
 
 class ApplicationController < ActionController::Base
   protect_from_forgery :except => [:callback]
