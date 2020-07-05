@@ -1,5 +1,5 @@
 class LinebotController < ApplicationController
-  include linebot_helper
+  include LinebotHelper
 
   def callback
     body = request.body.read
