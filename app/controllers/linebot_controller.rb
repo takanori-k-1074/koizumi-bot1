@@ -1,4 +1,5 @@
 class LinebotController < ApplicationController
+  require 'line_bubble'
 
   def callback
     body = request.body.read
@@ -51,7 +52,7 @@ class LinebotController < ApplicationController
             client.reply_message(event['replyToken'], message)
           elsif event.message['text'].include?("紹介")
             message = bubble
-            # linebot_helperに記載
+            # line_bubble.rbに記載
             client.reply_message(event['replyToken'], message)
           else
             response = event.message['text']
