@@ -43,16 +43,16 @@ class LinebotController < ApplicationController
           }
           client.reply_message(event['replyToken'], message)      
         when Line::Bot::Event::MessageType::Text
-          case event.message['text'].include?("天気")
+          if event.message['text'].include?("天気")
             response = "位置情報を送ってくれ"
             message = {
               type: 'text',
               text: response
             }
-          when event.message['text'].include?("紹介")
+          elsif event.message['text'].include?("紹介")
             message = bubble
             # helperに記載
-          when event.message['text'].include?("ニュース")
+          elsif event.message['text'].include?("ニュース")
             agent = Mechanize.new
             page = agent.get("https://tech-camp.in/note/technology")
             elements = page.search('h2 a')
