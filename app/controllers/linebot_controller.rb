@@ -37,18 +37,27 @@ class LinebotController < ApplicationController
           else
             response = "指定地では何かが発生していますが、\nご自身でお確かめください。\u{1F605}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
           end
-          message = responseMessage
+          message = {
+            type: 'text',
+            text: response
+          }
           client.reply_message(event['replyToken'], message)      
         when Line::Bot::Event::MessageType::Text
           if event.message['text'].include?("天気")
             response = "位置情報を送ってくれ"
-            message = responseMessage
+            message = {
+              type: 'text',
+              text: response
+            }
           elsif event.message['text'].include?("紹介")
             message = bubble
             # helperに記載
           else
             response = event.message['text']
-            message = responseMessage
+            message = {
+              type: 'text',
+              text: response
+            }
           end
           client.reply_message(event['replyToken'], message)
         when Line::Bot::Event::MessageType::Image, Line::Bot::Event::MessageType::Video
