@@ -25,38 +25,30 @@ class LinebotController < ApplicationController
           case nowWearther
           # 条件が一致した場合、メッセージを返す処理。
           when /.*(clear sky|few clouds).*/
-            push = "指定地の天気は晴れ\u{2600}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
+            response = "指定地の天気は晴れ\u{2600}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
           when /.*(scattered clouds|broken clouds|overcast clouds).*/
-            push = "指定地の天気は曇り\u{2601}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
+            response = "指定地の天気は曇り\u{2601}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
           when /.*(rain|thunderstorm|drizzle).*/
-            push = "指定地の天気は雨\u{2614}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
+            response = "指定地の天気は雨\u{2614}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
           when /.*(snow).*/
-            push = "指定地の天気は雪\u{2744}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
+            response = "指定地の天気は雪\u{2744}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
           when /.*(fog|mist|Haze).*/
-            push = "指定地では霧が発生\u{1F32B}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
+            response = "指定地では霧が発生\u{1F32B}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
           else
-            push = "指定地では何かが発生していますが、\nご自身でお確かめください。\u{1F605}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
+            response = "指定地では何かが発生していますが、\nご自身でお確かめください。\u{1F605}\n\n現在の気温は#{nowTemp}℃です\u{1F321}"
           end
-          message = {
-            type: 'text',
-            text: push
-          }         
+          message = responseMessage
+          client.reply_message(event['replyToken'], message)      
         when Line::Bot::Event::MessageType::Text
           if event.message['text'].include?("天気")
             response = "位置情報を送ってくれ"
-            message = {
-              type: 'text',
-              text: response
-            }
+            message = responseMessage
           elsif event.message['text'].include?("紹介")
             message = bubble
             # helperに記載
           else
             response = event.message['text']
-            message = {
-              type: 'text',
-              text: response
-            }
+            message = responseMessage
           end
           client.reply_message(event['replyToken'], message)
         when Line::Bot::Event::MessageType::Image, Line::Bot::Event::MessageType::Video

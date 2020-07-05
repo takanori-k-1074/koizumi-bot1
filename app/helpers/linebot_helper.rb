@@ -1,4 +1,12 @@
 module LinebotHelper
+
+  def responseMessage
+    {
+      type: 'text',
+      text: response
+    }
+  end
+
   def bubble
     { 
       "type": "flex",
