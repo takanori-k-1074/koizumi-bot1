@@ -1,4 +1,4 @@
-class line_bubble
+class line_bubble < ApplicationController
   def bubble
     {
       "type": "flex",
