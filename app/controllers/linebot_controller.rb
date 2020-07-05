@@ -1,5 +1,5 @@
 class LinebotController < ApplicationController
-  require 'line_bubble'
+  include linebot_helper
 
   def callback
     body = request.body.read
