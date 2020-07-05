@@ -68,7 +68,7 @@ class LinebotController < ApplicationController
             end
             message = {
               type: 'text',
-              text: "#{lineNews[0]}\n#{lineNews[1]}\n#{lineNews[2]}\n#{lineNews[3]}\n#{lineNews[4]}"
+              text: "TECHCAMPブログ(新着)\n1 #{lineNews[0]}\n\n2 #{lineNews[1]}\n\n3 #{lineNews[2]}\n\n4 #{lineNews[3]}\n\n5 #{lineNews[4]}"
             }
           else
             response = event.message['text']
