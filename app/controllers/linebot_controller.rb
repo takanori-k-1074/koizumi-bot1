@@ -61,7 +61,6 @@ class LinebotController < ApplicationController
             techNewsReverse = techNews.reverse
             num = 0
             lineNews = []
-
             techNewsReverse.each do |tech|
               next if num == 5 
               lineNews << tech
