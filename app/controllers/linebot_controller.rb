@@ -58,7 +58,7 @@ class LinebotController < ApplicationController
             elements = page.search('h2 a')
             techNews = []                     
             elements.each { |ele| techNews << ele.inner_text }
-            techNewsReverse = techNews.reverse
+            techNewsReverse = techNews
             num = 0
             lineNews = []
             techNewsReverse.each do |tech|
