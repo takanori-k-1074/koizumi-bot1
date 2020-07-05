@@ -43,15 +43,34 @@ class LinebotController < ApplicationController
           }
           client.reply_message(event['replyToken'], message)      
         when Line::Bot::Event::MessageType::Text
-          if event.message['text'].include?("天気")
+          case event.message['text'].include?("天気")
             response = "位置情報を送ってくれ"
             message = {
               type: 'text',
               text: response
             }
-          elsif event.message['text'].include?("紹介")
+          when event.message['text'].include?("紹介")
             message = bubble
             # helperに記載
+          when event.message['text'].include?("ニュース")
+            agent = Mechanize.new
+            page = agent.get("https://tech-camp.in/note/technology")
+            elements = page.search('h2 a')
+            techNews = []                     
+            elements.each { |ele| techNews << ele.inner_text }
+            techNewsReverse = techNews.reverse
+            num = 0
+            lineNews = []
+
+            techNewsReverse.each do |tech|
+              next if num == 5 
+              lineNews << tech
+              num += 1
+            end
+            message = {
+              type: 'text',
+              text: lineNews
+            }
           else
             response = event.message['text']
             message = {

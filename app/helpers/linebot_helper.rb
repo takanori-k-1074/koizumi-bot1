@@ -155,7 +155,7 @@ module LinebotHelper
                 },
                 {
                   "type": "text",
-                  "text": "The design is old Zaku because the functional content still represents a poor and the tyuunibyou.",
+                  "text": "The design is old Zaku because the functional content still represents a poor and the tyu-nibyou.",
                   "color": "#aaaaaa",
                   "wrap": true,
                   "margin": "xxl",
