@@ -1,6 +1,6 @@
 module LinebotHelper
   def bubble
-    {
+    { 
       "type": "flex",
       "altText": "bubble",
       "contents": {
@@ -166,6 +166,6 @@ module LinebotHelper
           "backgroundColor": "#000000"
         }
       }
-  }
+    }
   end
 end
