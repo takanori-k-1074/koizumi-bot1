@@ -62,14 +62,15 @@ class LinebotController < ApplicationController
             num = 0
             
             techNews.each do |tech|
-              next if num == 5 
+              next if num == 3 
               @lineNews << tech
               num += 1
             end
-            message = {
-              type: 'text',
-              text: "TECHCAMPブログ(新着)\n1 #{@lineNews[0]}\n\n2 #{@lineNews[1]}\n\n3 #{@lineNews[2]}\n\n4 #{@lineNews[3]}\n\n5 #{@lineNews[4]}"
-            }
+            message = news
+            # {
+            #   type: 'text',
+            #   text: "TECHCAMPブログ(新着)\n1 #{@lineNews[0]}\n\n2 #{@lineNews[1]}\n\n3 #{@lineNews[2]}"
+            # }
           else
             response = event.message['text']
             message = {
@@ -132,7 +133,7 @@ class LinebotController < ApplicationController
                 },
                 {
                   "type": "text",
-                  "text": "Monday 25, 9:00PM",
+                  "text": "#{@lineNews[0]}",
                   "wrap": true,
                   "size": "sm",
                   "flex": 4,
@@ -175,7 +176,7 @@ class LinebotController < ApplicationController
                 },
                 {
                   "type": "text",
-                  "text": "Monday 25, 9:00PM",
+                  "text": "#{@lineNews[1]}",
                   "wrap": true,
                   "size": "sm",
                   "flex": 4,
@@ -218,7 +219,7 @@ class LinebotController < ApplicationController
                 },
                 {
                   "type": "text",
-                  "text": "Monday 25, 9:00PM",
+                  "text": "#{@lineNews[2]}",
                   "wrap": true,
                   "size": "sm",
                   "flex": 4,
