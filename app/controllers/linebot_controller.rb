@@ -5,6 +5,7 @@ class LinebotController < ApplicationController
     body = request.body.read
     events = client.parse_events_from(body)
     @lineNews = []
+    @techUrl = []
 
     events.each { |event|
 
@@ -59,6 +60,7 @@ class LinebotController < ApplicationController
             elements = page.search('h2 a')
             techNews = []                     
             elements.each { |ele| techNews << ele.inner_text }
+            elements.each { |ele| @techUrl << ele.get_attribute(:href) }
             num = 0
             
             techNews.each do |tech|
@@ -149,7 +151,7 @@ class LinebotController < ApplicationController
                   "action": {
                     "type": "uri",
                     "label": "link to",
-                    "uri": "http://linecorp.com/"
+                    "uri": "#{@techUrl[0]}"
                   },
                   "margin": "none",
                   "height": "sm",
@@ -192,7 +194,7 @@ class LinebotController < ApplicationController
                   "action": {
                     "type": "uri",
                     "label": "link to",
-                    "uri": "http://linecorp.com/"
+                    "uri": "#{@techUrl[1]}"
                   },
                   "margin": "none",
                   "height": "sm",
@@ -235,7 +237,7 @@ class LinebotController < ApplicationController
                   "action": {
                     "type": "uri",
                     "label": "link to",
-                    "uri": "http://linecorp.com/"
+                    "uri": "#{@techUrl[2]}"
                   },
                   "margin": "none",
                   "height": "sm",
