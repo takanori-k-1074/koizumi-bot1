@@ -4,6 +4,7 @@ class LinebotController < ApplicationController
   def callback
     body = request.body.read
     events = client.parse_events_from(body)
+    @lineNews = []
 
     events.each { |event|
 
@@ -58,17 +59,16 @@ class LinebotController < ApplicationController
             elements = page.search('h2 a')
             techNews = []                     
             elements.each { |ele| techNews << ele.inner_text }
-            techNewsReverse = techNews
             num = 0
-            lineNews = []
-            techNewsReverse.each do |tech|
+            
+            techNews.each do |tech|
               next if num == 5 
-              lineNews << tech
+              @lineNews << tech
               num += 1
             end
             message = {
               type: 'text',
-              text: "TECHCAMPブログ(新着)\n1 #{lineNews[0]}\n\n2 #{lineNews[1]}\n\n3 #{lineNews[2]}\n\n4 #{lineNews[3]}\n\n5 #{lineNews[4]}"
+              text: "TECHCAMPブログ(新着)\n1 #{@lineNews[0]}\n\n2 #{@lineNews[1]}\n\n3 #{@lineNews[2]}\n\n4 #{@lineNews[3]}\n\n5 #{@lineNews[4]}"
             }
           else
             response = event.message['text']
@@ -86,5 +86,163 @@ class LinebotController < ApplicationController
       end
     }
     "OK"
+  end
+
+  private
+
+  def news
+    {
+    "type": "bubble",
+    "header": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "TECHCAMP blog new arrival",
+          "size": "lg",
+          "weight": "bold",
+          "color": "#f0c6b9"
+        }
+      ],
+      "backgroundColor": "#d3e9d0"
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "sm",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "margin": "lg",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "baseline",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "1.",
+                  "color": "#dfe2ea",
+                  "size": "sm",
+                  "flex": 1
+                },
+                {
+                  "type": "text",
+                  "text": "Monday 25, 9:00PM",
+                  "wrap": true,
+                  "size": "sm",
+                  "flex": 4,
+                  "color": "#cfd2da"
+                }
+              ]
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "link to",
+                "uri": "http://linecorp.com/"
+              },
+              "margin": "none",
+              "height": "sm",
+              "color": "#f0c6b9",
+              "style": "link"
+            }
+          ],
+          "backgroundColor": "#FFFFFF"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "margin": "lg",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "baseline",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "2.",
+                  "color": "#dfe2ea",
+                  "size": "sm",
+                  "flex": 1
+                },
+                {
+                  "type": "text",
+                  "text": "Monday 25, 9:00PM",
+                  "wrap": true,
+                  "size": "sm",
+                  "flex": 4,
+                  "color": "#cfd2da"
+                }
+              ]
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "link to",
+                "uri": "http://linecorp.com/"
+              },
+              "margin": "none",
+              "height": "sm",
+              "color": "#f0c6b9",
+              "style": "link"
+            }
+          ],
+          "backgroundColor": "#FFFFFF"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "margin": "lg",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "baseline",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "3.",
+                  "color": "#dfe2ea",
+                  "size": "sm",
+                  "flex": 1
+                },
+                {
+                  "type": "text",
+                  "text": "Monday 25, 9:00PM",
+                  "wrap": true,
+                  "size": "sm",
+                  "flex": 4,
+                  "color": "#cfd2da"
+                }
+              ]
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "link to",
+                "uri": "http://linecorp.com/"
+              },
+              "margin": "none",
+              "height": "sm",
+              "color": "#f0c6b9",
+              "style": "link"
+            }
+          ],
+          "backgroundColor": "#FFFFFF"
+        }
+      ]
+    }
+  }
   end
 end

@@ -113,7 +113,7 @@ module LinebotHelper
                     },
                     {
                       "type": "text",
-                      "text": "位置情報から天気の取得、TECHCAMPブログ新着のスクレイピング、秘技オウム返し",
+                      "text": "位置情報から現天気情報の取得、TECHCAMPブログ新着のスクレイピング、秘技オウム返し",
                       "wrap": true,
                       "color": "#aaaaaa",
                       "size": "sm",
@@ -135,7 +135,7 @@ module LinebotHelper
                     },
                     {
                       "type": "text",
-                      "text": "ゴミの日リマインド",
+                      "text": "ゴミの日リマインド機能",
                       "wrap": true,
                       "color": "#aaaaaa",
                       "size": "sm",
