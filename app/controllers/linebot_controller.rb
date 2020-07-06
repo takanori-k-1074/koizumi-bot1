@@ -92,158 +92,162 @@ class LinebotController < ApplicationController
   private
 
   def news
-    {
-    "type": "bubble",
-    "header": {
-      "type": "box",
-      "layout": "vertical",
-      "contents": [
-        {
-          "type": "text",
-          "text": "TECHCAMP blog new arrival",
-          "size": "lg",
-          "weight": "bold",
-          "color": "#f0c6b9"
-        }
-      ],
-      "backgroundColor": "#d3e9d0"
-    },
-    "body": {
-      "type": "box",
-      "layout": "vertical",
-      "spacing": "sm",
-      "contents": [
-        {
+    { 
+      "type": "flex",
+      "altText": "bubble",
+      "contents":{
+        "type": "bubble",
+        "header": {
           "type": "box",
           "layout": "vertical",
-          "margin": "lg",
-          "spacing": "sm",
           "contents": [
             {
-              "type": "box",
-              "layout": "baseline",
-              "spacing": "sm",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "1.",
-                  "color": "#dfe2ea",
-                  "size": "sm",
-                  "flex": 1
-                },
-                {
-                  "type": "text",
-                  "text": "#{@lineNews[0]}",
-                  "wrap": true,
-                  "size": "sm",
-                  "flex": 4,
-                  "color": "#cfd2da"
-                }
-              ]
-            },
-            {
-              "type": "button",
-              "action": {
-                "type": "uri",
-                "label": "link to",
-                "uri": "http://linecorp.com/"
-              },
-              "margin": "none",
-              "height": "sm",
-              "color": "#f0c6b9",
-              "style": "link"
+              "type": "text",
+              "text": "TECHCAMP blog new arrival",
+              "size": "lg",
+              "weight": "bold",
+              "color": "#f0c6b9"
             }
           ],
-          "backgroundColor": "#FFFFFF"
+          "backgroundColor": "#d3e9d0"
         },
-        {
+        "body": {
           "type": "box",
           "layout": "vertical",
-          "margin": "lg",
           "spacing": "sm",
           "contents": [
             {
               "type": "box",
-              "layout": "baseline",
+              "layout": "vertical",
+              "margin": "lg",
               "spacing": "sm",
               "contents": [
                 {
-                  "type": "text",
-                  "text": "2.",
-                  "color": "#dfe2ea",
-                  "size": "sm",
-                  "flex": 1
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "1.",
+                      "color": "#dfe2ea",
+                      "size": "sm",
+                      "flex": 1
+                    },
+                    {
+                      "type": "text",
+                      "text": "#{@lineNews[0]}",
+                      "wrap": true,
+                      "size": "sm",
+                      "flex": 4,
+                      "color": "#cfd2da"
+                    }
+                  ]
                 },
                 {
-                  "type": "text",
-                  "text": "#{@lineNews[1]}",
-                  "wrap": true,
-                  "size": "sm",
-                  "flex": 4,
-                  "color": "#cfd2da"
+                  "type": "button",
+                  "action": {
+                    "type": "uri",
+                    "label": "link to",
+                    "uri": "http://linecorp.com/"
+                  },
+                  "margin": "none",
+                  "height": "sm",
+                  "color": "#f0c6b9",
+                  "style": "link"
                 }
-              ]
+              ],
+              "backgroundColor": "#FFFFFF"
             },
-            {
-              "type": "button",
-              "action": {
-                "type": "uri",
-                "label": "link to",
-                "uri": "http://linecorp.com/"
-              },
-              "margin": "none",
-              "height": "sm",
-              "color": "#f0c6b9",
-              "style": "link"
-            }
-          ],
-          "backgroundColor": "#FFFFFF"
-        },
-        {
-          "type": "box",
-          "layout": "vertical",
-          "margin": "lg",
-          "spacing": "sm",
-          "contents": [
             {
               "type": "box",
-              "layout": "baseline",
+              "layout": "vertical",
+              "margin": "lg",
               "spacing": "sm",
               "contents": [
                 {
-                  "type": "text",
-                  "text": "3.",
-                  "color": "#dfe2ea",
-                  "size": "sm",
-                  "flex": 1
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "2.",
+                      "color": "#dfe2ea",
+                      "size": "sm",
+                      "flex": 1
+                    },
+                    {
+                      "type": "text",
+                      "text": "#{@lineNews[1]}",
+                      "wrap": true,
+                      "size": "sm",
+                      "flex": 4,
+                      "color": "#cfd2da"
+                    }
+                  ]
                 },
                 {
-                  "type": "text",
-                  "text": "#{@lineNews[2]}",
-                  "wrap": true,
-                  "size": "sm",
-                  "flex": 4,
-                  "color": "#cfd2da"
+                  "type": "button",
+                  "action": {
+                    "type": "uri",
+                    "label": "link to",
+                    "uri": "http://linecorp.com/"
+                  },
+                  "margin": "none",
+                  "height": "sm",
+                  "color": "#f0c6b9",
+                  "style": "link"
                 }
-              ]
+              ],
+              "backgroundColor": "#FFFFFF"
             },
             {
-              "type": "button",
-              "action": {
-                "type": "uri",
-                "label": "link to",
-                "uri": "http://linecorp.com/"
-              },
-              "margin": "none",
-              "height": "sm",
-              "color": "#f0c6b9",
-              "style": "link"
+              "type": "box",
+              "layout": "vertical",
+              "margin": "lg",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "3.",
+                      "color": "#dfe2ea",
+                      "size": "sm",
+                      "flex": 1
+                    },
+                    {
+                      "type": "text",
+                      "text": "#{@lineNews[2]}",
+                      "wrap": true,
+                      "size": "sm",
+                      "flex": 4,
+                      "color": "#cfd2da"
+                    }
+                  ]
+                },
+                {
+                  "type": "button",
+                  "action": {
+                    "type": "uri",
+                    "label": "link to",
+                    "uri": "http://linecorp.com/"
+                  },
+                  "margin": "none",
+                  "height": "sm",
+                  "color": "#f0c6b9",
+                  "style": "link"
+                }
+              ],
+              "backgroundColor": "#FFFFFF"
             }
-          ],
-          "backgroundColor": "#FFFFFF"
+          ]
         }
-      ]
+      }
     }
-  }
   end
 end
