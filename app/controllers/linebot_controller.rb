@@ -104,7 +104,7 @@ class LinebotController < ApplicationController
             {
               "type": "text",
               "text": "TECHCAMP blog new arrival",
-              "size": "lg",
+              "size": "md",
               "weight": "bold",
               "color": "#f0c6b9"
             }
@@ -226,7 +226,7 @@ class LinebotController < ApplicationController
                       "wrap": true,
                       "size": "sm",
                       "flex": 4,
-                      "color": "222222"
+                      "color": "#222222"
                     }
                   ]
                 },
