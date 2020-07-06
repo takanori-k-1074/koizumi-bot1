@@ -130,7 +130,7 @@ class LinebotController < ApplicationController
                     {
                       "type": "text",
                       "text": "1.",
-                      "color": "#dfe2ea",
+                      "color": "#cfd2da",
                       "size": "sm",
                       "flex": 1
                     },
@@ -140,7 +140,7 @@ class LinebotController < ApplicationController
                       "wrap": true,
                       "size": "sm",
                       "flex": 4,
-                      "color": "#cfd2da"
+                      "color": "#222222"
                     }
                   ]
                 },
@@ -183,7 +183,7 @@ class LinebotController < ApplicationController
                       "wrap": true,
                       "size": "sm",
                       "flex": 4,
-                      "color": "#cfd2da"
+                      "color": "#222222"
                     }
                   ]
                 },
@@ -226,7 +226,7 @@ class LinebotController < ApplicationController
                       "wrap": true,
                       "size": "sm",
                       "flex": 4,
-                      "color": "#cfd2da"
+                      "color": "222222"
                     }
                   ]
                 },
