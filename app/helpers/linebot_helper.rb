@@ -135,7 +135,7 @@ module LinebotHelper
                     },
                     {
                       "type": "text",
-                      "text": "ゴミの日リマインド機能",
+                      "text": "おみくじバブル",
                       "wrap": true,
                       "color": "#aaaaaa",
                       "size": "sm",
