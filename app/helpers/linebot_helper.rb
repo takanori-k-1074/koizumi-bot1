@@ -173,7 +173,7 @@ module LinebotHelper
   def reference
     {
       type: 'text',
-      text: "紹介: アプリ紹介\nニュース: テックキャンプブログ\n位置情報: 指定位置の天気気温\nその他: オウム返し"
+      text: "紹介: アプリ紹介\nニュース: テックキャンプブログ\nps5: ファミ通ps5\n位置情報: 指定位置の天気気温\nその他: オウム返し"
     }
   end
 end
