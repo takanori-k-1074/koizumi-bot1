@@ -73,7 +73,7 @@ class LinebotController < ApplicationController
             elements = page.search('h2 a')                  
             elements.each { |ele| @lineNews << ele.inner_text }
             elements.each { |ele| @techUrl << ele.get_attribute(:href) }
-            @title = "ファミ通_新着記事"
+            @title = "Famitu-ps5"
             message = news
             # privateに記載
           else
