@@ -169,4 +169,14 @@ module LinebotHelper
       }
     }
   end
+
+  def reference
+    {
+      type: 'text',
+      text: "紹介: アプリ紹介\n
+      ニュース: テックキャンプブログ\n
+      位置情報: 指定位置の天気気温を返す\n
+      その他: オウム返し"
+    }
+  end
 end

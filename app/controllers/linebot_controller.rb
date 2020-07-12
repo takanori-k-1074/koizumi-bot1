@@ -6,6 +6,7 @@ class LinebotController < ApplicationController
     events = client.parse_events_from(body)
     @lineNews = []
     @techUrl = []
+    # 上二つのインスタンス変数はスクレイピング用
 
     events.each { |event|
 
@@ -51,9 +52,12 @@ class LinebotController < ApplicationController
               type: 'text',
               text: response
             }
+          elsif event.message['text'].include?("リファレンス")
+            message = reference
+            # linebot_helperに記載
           elsif event.message['text'].include?("紹介")
             message = bubble
-            # helperに記載
+            # linebot_helperに記載
           elsif event.message['text'].include?("ニュース")
             agent = Mechanize.new
             page = agent.get("https://tech-camp.in/note/technology")
@@ -61,18 +65,14 @@ class LinebotController < ApplicationController
             techNews = []                     
             elements.each { |ele| techNews << ele.inner_text }
             elements.each { |ele| @techUrl << ele.get_attribute(:href) }
-            num = 0
-            
+            num = 0           
             techNews.each do |tech|
               next if num == 3 
               @lineNews << tech
               num += 1
             end
             message = news
-            # {
-            #   type: 'text',
-            #   text: "TECHCAMPブログ(新着)\n1 #{@lineNews[0]}\n\n2 #{@lineNews[1]}\n\n3 #{@lineNews[2]}"
-            # }
+            # privateに記載
           else
             response = event.message['text']
             message = {
