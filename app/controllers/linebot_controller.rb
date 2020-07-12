@@ -61,18 +61,16 @@ class LinebotController < ApplicationController
           elsif event.message['text'].include?("ニュース")
             agent = Mechanize.new
             page = agent.get("https://tech-camp.in/note/technology")
-            elements = page.search('h2 a')
-            techNews = []                     
+            elements = page.search('h2 a')                    
             elements.each { |ele| @lineNews << ele.inner_text }
             elements.each { |ele| @techUrl << ele.get_attribute(:href) }
             @title = "TECHCAMP blog new arrival"
             message = news
             # privateに記載
-          elsif event.message['text'].include?("ファミ通")
+          elsif event.message['text'].include?("ps5")
             agent = Mechanize.new
-            page = agent.get("https://www.famitsu.com/search/?category=new-article")
-            elements = page.search('h2 a')
-            techNews = []                     
+            page = agent.get("https://www.famitsu.com/search/?category=ps5")
+            elements = page.search('h2 a')                  
             elements.each { |ele| @lineNews << ele.inner_text }
             elements.each { |ele| @techUrl << ele.get_attribute(:href) }
             @title = "ファミ通_新着記事"
