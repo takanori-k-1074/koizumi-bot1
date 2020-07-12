@@ -72,7 +72,7 @@ class LinebotController < ApplicationController
             page = agent.get("https://www.famitsu.com/search/?category=ps5")
             elements = page.search('h2 a')                  
             elements.each { |ele| @lineNews << ele.inner_text }
-            elements.each { |ele| @techUrl << ele.get_attribute(:href) }
+            elements.each { |ele| @techUrl << "https://www.famitsu.com#{ele.get_attribute(:href)}" }
             @title = "Famitu-ps5"
             message = news
             # privateに記載
