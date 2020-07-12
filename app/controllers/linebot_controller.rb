@@ -63,14 +63,19 @@ class LinebotController < ApplicationController
             page = agent.get("https://tech-camp.in/note/technology")
             elements = page.search('h2 a')
             techNews = []                     
-            elements.each { |ele| techNews << ele.inner_text }
+            elements.each { |ele| @lineNews << ele.inner_text }
             elements.each { |ele| @techUrl << ele.get_attribute(:href) }
-            num = 0           
-            techNews.each do |tech|
-              next if num == 3 
-              @lineNews << tech
-              num += 1
-            end
+            @title = "TECHCAMP blog new arrival"
+            message = news
+            # privateに記載
+          elsif event.message['text'].include?("ファミ通")
+            agent = Mechanize.new
+            page = agent.get("https://www.famitsu.com/search/?category=new-article")
+            elements = page.search('h2 a')
+            techNews = []                     
+            elements.each { |ele| @lineNews << ele.inner_text }
+            elements.each { |ele| @techUrl << ele.get_attribute(:href) }
+            @title = "ファミ通_新着記事"
             message = news
             # privateに記載
           else
@@ -105,7 +110,7 @@ class LinebotController < ApplicationController
           "contents": [
             {
               "type": "text",
-              "text": "TECHCAMP blog new arrival",
+              "text": "#{@title}",
               "size": "md",
               "weight": "bold",
               "color": "#f0c6b9"
