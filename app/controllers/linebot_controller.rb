@@ -73,49 +73,50 @@ class LinebotController < ApplicationController
             @picture = []
             @comment = [] 
             @color = [] 
-            randumNumber = rand(1..100)
+            randumNumber = rand(1..10)
+            randumNumber2 = rand(1..10)
             case
-            when randumNumber == 1
+            when randumNumber == 1 && randumNumber2 == 1
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/16/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.17.22.png"
               @comment << "Raoh"
               @color << "#f0e68c"
-            when randumNumber <= 10
+            when randumNumber <= 1
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/17/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.17.10.png"
-              @comment << "mobA"
+              @comment << "MobA"
               @color << "#008000"
-            when randumNumber <= 20
+            when randumNumber <= 2
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/18/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.17.03.png"
               @comment << "Amiba"
               @color << "#ff0000"
-            when randumNumber <= 30
+            when randumNumber <= 3
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/19/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.54.png"
-              @comment << "mobB"
+              @comment << "MobB"
               @color << "#008000"
-            when randumNumber <= 40
+            when randumNumber <= 4
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/20/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.47.png"
               @comment << "Jagi"
               @color << "#ff0000"
-            when randumNumber <= 50
+            when randumNumber <= 5
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/21/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.40.png"
-              @comment << "rei"
+              @comment << "Rei"
               @color << "#0000ff"
-            when randumNumber <= 60
+            when randumNumber <= 6
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/23/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.24.png"
               @comment << "Souther"
               @color << "#ff0000"
-            when randumNumber <= 70
+            when randumNumber <= 7
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/24/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.16.png"
               @comment << "Kenshiro"
               @color << "#0000ff"
-            when randumNumber <= 80
+            when randumNumber <= 8
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/25/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.06.png"
               @comment << "Shin"
               @color << "#ff0000"
-            when randumNumber <= 90
+            when randumNumber <= 9
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/26/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.15.56.png"
               @comment << "Toki"
               @color << "#0000ff"
-            when randumNumber <= 100
+            when randumNumber <= 10
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/22/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.32.png"
               @comment << "	Rei"
               @color << "#0000ff"

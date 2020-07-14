@@ -113,7 +113,7 @@ module LinebotHelper
                     },
                     {
                       "type": "text",
-                      "text": "位置情報から現天気情報の取得、TECHCAMPブログ新着のスクレイピング、秘技オウム返し",
+                      "text": "位置情報から現天気情報の取得、TECHCAMPブログ新着のスクレイピング、おみくじ、オウム返し",
                       "wrap": true,
                       "color": "#aaaaaa",
                       "size": "sm",
