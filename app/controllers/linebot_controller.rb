@@ -350,8 +350,8 @@ class LinebotController < ApplicationController
                       "layout": "horizontal",
                       "contents": [
                         {
-                          "type": "#{@comment[0]}",
-                          "text": "Brown Grand Hotel",
+                          "type": "text",
+                          "text": "#{@comment[0]}",
                           "size": "3xl",
                           "color": "#{@color[0]}"
                         }
