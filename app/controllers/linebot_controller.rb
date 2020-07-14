@@ -76,7 +76,7 @@ class LinebotController < ApplicationController
           elsif event.message['text'].include?("おみくじ")
             
             randumNumber = rand(1..100)
-            case randumNumber
+            case
             when randumNumber == 1
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/16/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.17.22.png"
               @comment << "ラオウ"
