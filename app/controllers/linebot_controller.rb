@@ -79,23 +79,23 @@ class LinebotController < ApplicationController
             case
             when randumNumber == 1
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/16/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.17.22.png"
-              @comment << "ラオウ"
+              @comment << "Raoh"
               @color << "#f0e68c"
             when randumNumber <= 10
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/17/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.17.10.png"
-              @comment << "雑魚A"
+              @comment << "mobA"
               @color << "#0000ff"
             when randumNumber <= 20
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/18/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.17.03.png"
-              @comment << "アミバ"
+              @comment << "Amiba"
               @color << "#ff0000"
             when randumNumber <= 30
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/19/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.54.png"
-              @comment << "rey"
+              @comment << "mobB"
               @color << "#ff0000"
             when randumNumber <= 40
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/20/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.47.png"
-              @comment << "ジャギ"
+              @comment << "Jagi"
               @color << "#ff0000"
             when randumNumber <= 50
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/21/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.40.png"
@@ -103,24 +103,24 @@ class LinebotController < ApplicationController
               @color << "#0000ff"
             when randumNumber <= 60
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/23/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.24.png"
-              @comment << "サウザー"
+              @comment << "Souther"
               @color << "#ff0000"
             when randumNumber <= 70
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/24/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.16.png"
-              @comment << "ケンシロー"
-              @color << "#ff0000"
+              @comment << "Kenshiro"
+              @color << "#000088"
             when randumNumber <= 80
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/25/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.06.png"
-              @comment << "シン"
+              @comment << "Shin"
               @color << "#ff0000"
             when randumNumber <= 90
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/26/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.15.56.png"
-              @comment << "トキ"
-              @color << "#ff0000"
+              @comment << "Toki"
+              @color << "#000088"
             when randumNumber <= 100
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/22/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.32.png"
-              @comment << "レイ"
-              @color << "#ff0000"
+              @comment << "	Rei"
+              @color << "#000088"
             end
             message = omikuji # privateに記載
           else
