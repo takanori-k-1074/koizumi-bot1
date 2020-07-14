@@ -4,12 +4,8 @@ class LinebotController < ApplicationController
   def callback
     body = request.body.read
     events = client.parse_events_from(body)
-    @lineNews = [] # スクレイピング用
-    @techUrl = [] # スクレイピング用 
-    @picture = []
-    @comment = [] 
-    @color = []  
-
+    @lineNews = []#スクレイピング用
+    @techUrl = []#同上
     events.each { |event|
       case event
       when Line::Bot::Event::Message
@@ -74,7 +70,9 @@ class LinebotController < ApplicationController
             @title = "Famitu-ps5"
             message = news # privateに記載
           elsif event.message['text'].include?("ケンシロー")
-            
+            @picture = []
+            @comment = [] 
+            @color = [] 
             randumNumber = rand(1..100)
             case
             when randumNumber == 1
