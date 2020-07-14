@@ -319,7 +319,7 @@ class LinebotController < ApplicationController
           "contents": [
             {
               "type": "image",
-              "url": "#{@picture}",
+              "url": "#{@picture[0]}",
               "size": "full",
               "aspectMode": "cover",
               "aspectRatio": "1:1",
@@ -327,7 +327,7 @@ class LinebotController < ApplicationController
             },
             {
               "type": "image",
-              "url": "#{@picture}",
+              "url": "#{@picture[0]}",
               "position": "absolute",
               "aspectMode": "fit",
               "aspectRatio": "1:1",
@@ -350,10 +350,10 @@ class LinebotController < ApplicationController
                       "layout": "horizontal",
                       "contents": [
                         {
-                          "type": "text",
-                          "text": "#{@comment}",
-                          "size": "xl",
-                          "color": "#{@color}"
+                          "type": "#{@comment[0]}",
+                          "text": "Brown Grand Hotel",
+                          "size": "3xl",
+                          "color": "#{@color[0]}"
                         }
                       ]
                     }
