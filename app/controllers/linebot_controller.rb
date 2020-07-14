@@ -341,7 +341,7 @@ class LinebotController < ApplicationController
                           "type": "text",
                           "text": "#{@comment[0]}",
                           "size": "3xl",
-                          "color": "#{@color[0]}"
+                          "color": "#{@color[0]}",
                           "style": "italic",
                           "weight": "bold"
                         }
