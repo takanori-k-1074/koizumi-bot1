@@ -99,7 +99,7 @@ class LinebotController < ApplicationController
               @color << "#ff0000"
             when randumNumber <= 50
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/21/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.40.png"
-              @comment << "雑魚B"
+              @comment << "rey"
               @color << "#0000ff"
             when randumNumber <= 60
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/23/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.24.png"
@@ -324,18 +324,6 @@ class LinebotController < ApplicationController
               "aspectMode": "cover",
               "aspectRatio": "1:1",
               "gravity": "center"
-            },
-            {
-              "type": "image",
-              "url": "#{@picture[0]}",
-              "position": "absolute",
-              "aspectMode": "fit",
-              "aspectRatio": "1:1",
-              "offsetTop": "0px",
-              "offsetBottom": "0px",
-              "offsetStart": "0px",
-              "offsetEnd": "0px",
-              "size": "full"
             },
             {
               "type": "box",
