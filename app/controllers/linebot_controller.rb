@@ -4,12 +4,10 @@ class LinebotController < ApplicationController
   def callback
     body = request.body.read
     events = client.parse_events_from(body)
-    @lineNews = []
-    @techUrl = []
-    # 上二つのインスタンス変数はスクレイピング用
+    @lineNews = [] # スクレイピング用
+    @techUrl = [] # スクレイピング用   
 
     events.each { |event|
-
       case event
       when Line::Bot::Event::Message
         case event.type
@@ -53,11 +51,9 @@ class LinebotController < ApplicationController
               text: response
             }
           elsif event.message['text'].include?("リファレンス")
-            message = reference
-            # linebot_helperに記載
+            message = reference # linebot_helperに記載
           elsif event.message['text'].include?("紹介")
-            message = bubble
-            # linebot_helperに記載
+            message = bubble # linebot_helperに記載
           elsif event.message['text'].include?("ニュース")
             agent = Mechanize.new
             page = agent.get("https://tech-camp.in/note/technology")
@@ -65,8 +61,7 @@ class LinebotController < ApplicationController
             elements.each { |ele| @lineNews << ele.inner_text }
             elements.each { |ele| @techUrl << ele.get_attribute(:href) }
             @title = "TECHCAMP blog new arrival"
-            message = news
-            # privateに記載
+            message = news # privateに記載
           elsif event.message['text'].include?("ps5")
             agent = Mechanize.new
             page = agent.get("https://www.famitsu.com/search/?category=ps5")
@@ -74,8 +69,59 @@ class LinebotController < ApplicationController
             elements.each { |ele| @lineNews << ele.inner_text }
             elements.each { |ele| @techUrl << "https://www.famitsu.com#{ele.get_attribute(:href)}" }
             @title = "Famitu-ps5"
-            message = news
-            # privateに記載
+            message = news # privateに記載
+          elsif event.message['text'].include?("おみくじ")
+            @picture = []
+            @comment = [] 
+            @color = []
+            randumNumber = rand(1..100)
+            case randumNumber == true
+            when randumNumber == 1
+              @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/16/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.17.22.png"
+              @comment << "ラオウ"
+              @color << "#f0e68c"
+            when randumNumber <= 10
+              @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/17/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.17.10.png"
+              @comment << "雑魚A"
+              @color << "#0000ff"
+            when randumNumber <= 20
+              @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/18/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.17.03.png"
+              @comment << "アミバ"
+              @color << "#ff0000"
+            when randumNumber <= 30
+              @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/19/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.54.png"
+              @comment << "rey"
+              @color << "#ff0000"
+            when randumNumber <= 40
+              @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/20/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.47.png"
+              @comment << "ジャギ"
+              @color << "#ff0000"
+            when randumNumber <= 50
+              @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/21/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.40.png"
+              @comment << "雑魚B"
+              @color << "#0000ff"
+            when randumNumber <= 60
+              @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/23/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.24.png"
+              @comment << "サウザー"
+              @color << "#ff0000"
+            when randumNumber <= 70
+              @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/24/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.16.png"
+              @comment << "ケンシロー"
+              @color << "#ff0000"
+            when randumNumber <= 80
+              @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/25/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.06.png"
+              @comment << "シン"
+              @color << "#ff0000"
+            when randumNumber <= 90
+              @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/26/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.15.56.png"
+              @comment << "トキ"
+              @color << "#ff0000"
+            when randumNumber <= 100
+              @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/22/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.32.png"
+              @comment << "レイ"
+              @color << "#ff0000"
+            end
+            message = omikuji # privateに記載
           else
             response = event.message['text']
             message = {
@@ -89,8 +135,7 @@ class LinebotController < ApplicationController
           tf = Tempfile.open("content")
           tf.write(response.body)
         when Line::Bot::Event::MessageType::Sticker
-          message = reference
-            # linebot_helperに記載
+          message = reference # linebot_helperに記載
           client.reply_message(event['replyToken'], message)
         end
         
@@ -256,6 +301,73 @@ class LinebotController < ApplicationController
               "backgroundColor": "#FFFFFF"
             }
           ]
+        }
+      }
+    }
+  end
+
+  def omikuji
+    { 
+      "type": "flex",
+      "altText": "bubble",
+      "contents":{
+        "type": "bubble",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "image",
+              "url": "#{@picture}",
+              "size": "full",
+              "aspectMode": "cover",
+              "aspectRatio": "1:1",
+              "gravity": "center"
+            },
+            {
+              "type": "image",
+              "url": "#{@picture}",
+              "position": "absolute",
+              "aspectMode": "fit",
+              "aspectRatio": "1:1",
+              "offsetTop": "0px",
+              "offsetBottom": "0px",
+              "offsetStart": "0px",
+              "offsetEnd": "0px",
+              "size": "full"
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "box",
+                      "layout": "horizontal",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "text": "#{@comment}",
+                          "size": "xl",
+                          "color": "#{@color}"
+                        }
+                      ]
+                    }
+                  ],
+                  "spacing": "xs"
+                }
+              ],
+              "position": "absolute",
+              "offsetBottom": "0px",
+              "offsetStart": "0px",
+              "offsetEnd": "0px",
+              "paddingAll": "20px"
+            }
+          ],
+          "paddingAll": "0px"
         }
       }
     }
