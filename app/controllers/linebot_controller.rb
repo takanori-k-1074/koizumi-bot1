@@ -73,7 +73,7 @@ class LinebotController < ApplicationController
             elements.each { |ele| @techUrl << "https://www.famitsu.com#{ele.get_attribute(:href)}" }
             @title = "Famitu-ps5"
             message = news # privateに記載
-          elsif event.message['text'].include?("おみくじ")
+          elsif event.message['text'].include?("ケンシロー")
             
             randumNumber = rand(1..100)
             case
@@ -84,7 +84,7 @@ class LinebotController < ApplicationController
             when randumNumber <= 10
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/17/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.17.10.png"
               @comment << "mobA"
-              @color << "#0000ff"
+              @color << "#008000"
             when randumNumber <= 20
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/18/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.17.03.png"
               @comment << "Amiba"
@@ -92,14 +92,14 @@ class LinebotController < ApplicationController
             when randumNumber <= 30
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/19/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.54.png"
               @comment << "mobB"
-              @color << "#ff0000"
+              @color << "#008000"
             when randumNumber <= 40
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/20/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.47.png"
               @comment << "Jagi"
               @color << "#ff0000"
             when randumNumber <= 50
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/21/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.40.png"
-              @comment << "rey"
+              @comment << "rei"
               @color << "#0000ff"
             when randumNumber <= 60
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/23/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.24.png"
@@ -108,7 +108,7 @@ class LinebotController < ApplicationController
             when randumNumber <= 70
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/24/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.16.png"
               @comment << "Kenshiro"
-              @color << "#000088"
+              @color << "#0000ff"
             when randumNumber <= 80
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/25/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.06.png"
               @comment << "Shin"
@@ -116,11 +116,11 @@ class LinebotController < ApplicationController
             when randumNumber <= 90
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/26/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.15.56.png"
               @comment << "Toki"
-              @color << "#000088"
+              @color << "#0000ff"
             when randumNumber <= 100
               @picture << "https://deploy11111111.s3-ap-northeast-1.amazonaws.com/uploads/message/image/22/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2020-07-14_18.16.32.png"
               @comment << "	Rei"
-              @color << "#000088"
+              @color << "#0000ff"
             end
             message = omikuji # privateに記載
           else
