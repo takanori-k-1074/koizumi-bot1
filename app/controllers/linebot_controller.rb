@@ -137,8 +137,7 @@ class LinebotController < ApplicationController
         when Line::Bot::Event::MessageType::Sticker
           message = reference # linebot_helperに記載
           client.reply_message(event['replyToken'], message)
-        end
-        
+        end        
       end
     }
     "OK"
