@@ -14,7 +14,7 @@ class LinebotController < ApplicationController
           # LINEの位置情報から緯度経度を取得
           latitude = event.message['latitude']
           longitude = event.message['longitude']
-          appId = "6f0d8d8f2b532a46d4ff945d4091f211"
+          appId = Rails.application.credentials[:api][:api_key]
           url= "http://api.openweathermap.org/data/2.5/forecast?lon=#{longitude}&lat=#{latitude}&APPID=#{appId}&units=metric&mode=xml"
           # XMLをパース
           xml  = open( url ).read.toutf8
