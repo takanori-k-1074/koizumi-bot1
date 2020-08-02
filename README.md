@@ -34,7 +34,7 @@
  steamAPIを使用したnewsアプリを作成予定。
 
 ## 参考画像
- ![Alt text](relative/path/to/スクリーンショット 2020-08-02 18.06.52.png?raw=true "Title")
+<img width="1092" alt="スクリーンショット 2020-08-02 18 06 52" src="https://user-images.githubusercontent.com/64514926/89119917-c7579e80-d4ec-11ea-9de4-90879b78ea72.png">
 
 
 
