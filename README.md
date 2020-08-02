@@ -34,7 +34,7 @@
  steamAPIを使用したnewsアプリを作成予定。
 
 ## 参考画像
- koizumi-bot1/public/スクリーンショット 2020-08-02 18.06.52.png
+ ![Alt text](relative/path/to/スクリーンショット 2020-08-02 18.06.52.png?raw=true "Title")
 
 
 
