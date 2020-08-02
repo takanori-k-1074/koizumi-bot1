@@ -4,7 +4,7 @@
 ・コイズミbot試作１号機
  
  機能概要\n
-  Line Messaging API
+  Line Messaging API\n
  .送信テキストに対応したリプライ
  .Flex Message を使ったデザイン
  
