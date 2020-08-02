@@ -1,18 +1,18 @@
 # README
 
- ##アプリ名
+## アプリ名
 
 ・コイズミbot試作１号機
  
- ##機能概要
+## 機能概要
 
-  Line Messaging API\n
+#### Line Messaging API\n
 
  .送信テキストに対応したリプライ
 
  .Flex Message を使ったデザイン
  
-  スクレイピング
+#### スクレイピング
 
  .gem mechanizeを使用しTECH CAMP ブログの新着から最新３件を取得する
 
@@ -20,7 +20,7 @@
 
  .天気情報の取得に利用し、ラインの位置情報から天気情報を取得する
 
- ##制作背景
+## 制作背景
 
  当初steamnewsアプリを作りたかった。
 
@@ -37,7 +37,7 @@
  TECHCAMPチーム開発カリキュラム終了後
  steamAPIを使用したnewsアプリを作成予定。
 
- ##参考画像
+## 参考画像
  https://gyazo.com/a2ca14f69568a0f0931bed412971994e
 
 
